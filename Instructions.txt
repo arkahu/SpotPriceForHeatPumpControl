@@ -1,0 +1,39 @@
+INSTRUCTIONS 
+for SpotPriceGet.py and HeatPumpControl.py programs.
+
+
+Author: 
+Arttu Huttunen
+Oulu, Finland
+Created in 2015
+
+/*
+ * ----------------------------------------------------------------------------
+ * The MIT License (MIT)
+ * Copyright (c) 2015 Arttu Huttunen 
+ * Anyone is free to do whatever they want with this code, at their own risk.
+ * ----------------------------------------------------------------------------
+ */
+
+FILES:
+SpotPriceGet.py          = program for getting the electricity spot prices from Nordpool
+HeatPumpControl.py       = program for controlling a heat pump with the price information
+Settings.txt             = configuration file
+hours.txt                = data written by SpotPriceGet.py and used by HeatPumpControl.py 
+log.txt                  = log file
+
+REQUIREMENTS:
+python3
+modules: sys, requests, json, configparser, datetime, serial
+
+
+USAGE:
+Use cron or any other scheduling program to run SpotPriceGet.py once per day before midnight
+and HeatPumpControl.py at beginning of every hour. Note that prices should be fetched only 
+after the last run of control program. Write the desired pump commands to the Settings.txt 
+file, into levels. Make sure the hours.txt and log.txt have write permissions.
+
+You may also write the hours.txt manually to use fixed clock based control.
+
+NOTE:
+Whether or not running this kind of software is accepted by Nordpool is up to the user to find out.

@@ -1,0 +1,60 @@
+# This is the configuration file for SpotPriceGet.py and HeatPumpControl.py python program.
+#Program version 0.3
+# If there is an error reading this file, a file called log.txt is written.
+
+[Settings]
+
+# www address for getting the data
+URL = http://www.nordpoolspot.com/api/marketdata/page/35?currency=,,EUR,EUR
+
+# Name and path of the output file
+OutputFile = hours.txt
+
+# Output file type, options: p = prices, l = levels
+OutputType = l
+
+
+#Level values/commands, 'atw' +register + value (the command being sent), level1 for the highest price
+Level1 = 10
+Level2 = 20
+Level3 = 30
+Level4 = 40
+Level5 = 50
+Level6 = 60
+Level7 = 70
+Level8 = 80
+Level9 = 90
+Level10 = 100
+Level11 = 110
+Level12 = 120
+Level13 = 130
+Level14 = 140
+Level15 = 150
+Level16 = 160
+Level17 = 170
+Level18 = 180
+Level19 = 190
+Level20 = 200
+Level21 = 210
+Level22 = 220
+Level23 = 230
+Level24 = 240
+
+
+#Logging on/off
+Log = on
+
+#Log file name and path
+LogFile = log.txt
+
+#Log prices on/off
+LogPrice = off
+
+#User time zone, UTC+x, Finland is 2, Sweden 1, Data is assumed to be in CET i.e. 1
+TimeZone = 2
+
+
+#Serial port configuration for writing the control commands
+SerialPort = /dev/ttyS1
+Baudrate = 9600
+Timeout = 5
