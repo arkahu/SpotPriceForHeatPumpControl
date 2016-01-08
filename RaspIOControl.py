@@ -2,7 +2,7 @@
 """
 Created on Sun Feb  8 23:38:32 2015
 
-RaspIOControl 0.1
+RaspIOControl 0.1 beta
 
 This is a python3 program that will read a list of commands from a file and
 set Raspberry Pi GPIO state accordingly.
@@ -29,7 +29,7 @@ configFile = './Settings.txt'
 
 #Actual code starts here
 #---------------------------------------------------------------------------
-import sys, configparser, datetime
+import sys, configparser, datetime, time
 import RPi.GPIO as GPIO
 
 
@@ -94,7 +94,23 @@ try:
     GPIO.setmode(GPIOmode)
     GPIO.setup(GPIOpin, GPIO.OUT)
     
-    GPIO.output(GPIOpin, command)
+    counter = 0
+    if command == True:
+        while counter < 3600:
+            GPIO.output(GPIOpin, True)
+            time.sleep(1)
+            GPIO.output(GPIOpin, False)
+            time.sleep(1)
+            counter = counter + 2
+    elif command == False :
+        while counter < 3600:
+            GPIO.output(GPIOpin, True)
+            time.sleep(1)            
+            GPIO.output(GPIOpin, False)
+            time.sleep(4)
+            counter = counter + 5
+    else:
+        logLine.append ('Stupid command. ')
 
     GPIO.cleanup()    
     
