@@ -58,3 +58,6 @@ TimeZone = 1
 SerialPort = /dev/ttyS1
 Baudrate = 9600
 Timeout = 5
+
+GPIOpin = 7
+
